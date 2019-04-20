@@ -1,0 +1,104 @@
+{
+	"invocation": "Sample Jovo app",
+	"intents": [
+		{
+			"name": "PlusIntent",
+			"phrases": [
+				"{number}を足して",
+				"プラス{number}",
+				"{number}を足す"
+			],
+			"inputs": [
+				{
+					"name": "number",
+					"type": {
+						"alexa": "AMAZON.NUMBER",
+						"dialogflow": "@sys.number"
+					}
+				}
+			]
+		},
+		{
+			"name": "MinusIntent",
+			"phrases": [
+				"{number}を引いて",
+				"マイナス{number}",
+				"{number}を引く"
+			],
+			"inputs": [
+				{
+					"name": "number",
+					"type": {
+						"alexa": "AMAZON.NUMBER",
+						"dialogflow": "@sys.number"
+					}
+				}
+			]
+		},
+
+		{
+			"name": "ResultAnswerIntent",
+			"phrases": [
+				"答えは{answer}",
+				"{answer}"
+			],
+			"inputs": [
+				{
+					"name": "answer",
+					"type": {
+						"alexa": "AMAZON.NUMBER",
+						"dialogflow": "@sys.number"
+					}
+				}
+			]
+		},
+		
+		{
+			"name": "ResultHelpIntent",
+			"phrases": [
+				"結果を教えて",
+				"答えを教えて"
+			]
+		}
+	],
+	"alexa": {
+		"interactionModel": {
+			"languageModel": {
+				"intents": [
+					{
+						"name": "AMAZON.CancelIntent",
+						"samples": []
+					},
+					{
+						"name": "AMAZON.HelpIntent",
+						"samples": []
+					},
+					{
+						"name": "AMAZON.StopIntent",
+						"samples": []
+					}
+				]
+			}
+		}
+	},
+	"dialogflow": {
+		"intents": [
+			{
+				"name": "Default Fallback Intent",
+				"auto": true,
+				"webhookUsed": true,
+				"fallbackIntent": true
+			},
+			{
+				"name": "Default Welcome Intent",
+				"auto": true,
+				"webhookUsed": true,
+				"events": [
+					{
+						"name": "WELCOME"
+					}
+				]
+			}
+		]
+	}
+	}	
